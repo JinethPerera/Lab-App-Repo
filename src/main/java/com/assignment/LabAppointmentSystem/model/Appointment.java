@@ -26,6 +26,7 @@ public class Appointment {
     private LocalDate dateOfBirth;
 
     private LocalDateTime appointmentDateTime;
+    private String email;
     private String testType;
     private String status; // Pending, Completed, Canceled
 
@@ -59,6 +60,14 @@ public class Appointment {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public LocalDateTime getAppointmentDateTime() {
