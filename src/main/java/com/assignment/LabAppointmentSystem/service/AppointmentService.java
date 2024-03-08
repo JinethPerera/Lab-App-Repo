@@ -5,6 +5,10 @@ import com.assignment.LabAppointmentSystem.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
+
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +17,8 @@ import java.util.Optional;
 public class AppointmentService {
     @Autowired
     private AppointmentRepository appointmentRepository;
+
+
 
     public Appointment bookAppointment(Appointment appointment) {
         return appointmentRepository.save(appointment);
@@ -42,4 +48,6 @@ public class AppointmentService {
     public List<Appointment> getAppointmentsByStatus(String status) {
         return appointmentRepository.findByStatusAndAppointmentDateTimeAfter(status, LocalDateTime.now());
     }
+
+
 }

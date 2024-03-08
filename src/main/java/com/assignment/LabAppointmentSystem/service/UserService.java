@@ -5,6 +5,8 @@ import com.assignment.LabAppointmentSystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService implements UserServiceInterface {
 
@@ -37,5 +39,10 @@ public class UserService implements UserServiceInterface {
             // Save the admin user to the repository
             userRepository.save(adminUser);
         }
+
+
+    }
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
