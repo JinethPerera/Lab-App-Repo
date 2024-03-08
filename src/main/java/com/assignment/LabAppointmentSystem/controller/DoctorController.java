@@ -11,7 +11,7 @@ package com.assignment.LabAppointmentSystem.controller;
 
 @RestController
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3001")
 public class DoctorController {
     private final DoctorService doctorService;
 

@@ -42,6 +42,11 @@ public class UserService implements UserServiceInterface {
 
 
     }
+    public boolean isAdmin(String username, String password) {
+        User user = userRepository.findByUsername(username);
+        return user != null && user.getUsername().equals("Admin") && user.getPassword().equals(password);
+    }
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }

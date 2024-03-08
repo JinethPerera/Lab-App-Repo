@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3001")
 public class UserController {
 
     @Autowired
     private UserService userService;
-    @CrossOrigin(origins = "http://localhost:3004")
+    @CrossOrigin(origins = "http://localhost:3001")
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         userService.registerUser(user);
@@ -30,13 +30,19 @@ public class UserController {
         String password = user.getPassword();
 
         User loggedInUser = userService.loginUser(username, password);
+        boolean isAdmin = userService.isAdmin(username, password);
 
         if (loggedInUser != null) {
-            return ResponseEntity.ok("Login successful");
+            if (isAdmin) {
+                return ResponseEntity.ok("Admin"); // Return "Admin" if user is admin
+            } else {
+                return ResponseEntity.ok("User"); // Return "User" if user is not admin
+            }
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
     }
+
 
     @GetMapping("/admin/users")
     public ResponseEntity<List<User>> getAllUsers() {
