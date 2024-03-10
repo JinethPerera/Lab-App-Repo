@@ -7,7 +7,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
-    List<Appointment> findByPatientId(Long patientId);
+    List<Appointment> findByPatientName(String patientName);
     List<Appointment> findByStatusAndAppointmentDateTimeAfter(String status, LocalDateTime dateTime);
+
 
 }

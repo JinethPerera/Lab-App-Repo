@@ -15,18 +15,15 @@ public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
-    private Long patientId;
+    private Long patientId; // Add patientId field
 
     // Other fields
     private String patientName;
     private String contactInformation;
     private LocalDate dateOfBirth;
-
     private LocalDateTime appointmentDateTime;
-
     private String testType;
     private String status; // Pending, Completed, Canceled
 
@@ -36,6 +33,14 @@ public class Appointment {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getPatientId() { // Getter for patientId
+        return patientId;
+    }
+
+    public void setPatientId(Long patientId) { // Setter for patientId
+        this.patientId = patientId;
     }
 
     public String getPatientName() {
@@ -62,8 +67,6 @@ public class Appointment {
         this.dateOfBirth = dateOfBirth;
     }
 
-
-
     public LocalDateTime getAppointmentDateTime() {
         return appointmentDateTime;
     }
@@ -71,6 +74,7 @@ public class Appointment {
     public void setAppointmentDateTime(LocalDateTime appointmentDateTime) {
         this.appointmentDateTime = appointmentDateTime;
     }
+
 
 
     public String getTestType() {
