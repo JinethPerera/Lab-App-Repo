@@ -18,19 +18,23 @@ public class Doctor {
     private String email;
 
     private String password;
+    @Enumerated(EnumType.STRING)
+    private Type type;
+
 
 
 
 
     public Doctor() {}
 
-    public Doctor(String name, Specialization specialization, String address, String phoneNumber, String email,String password) {
+    public Doctor(String name, Specialization specialization, String address, String phoneNumber, String email,String password,Type type) {
         this.name = name;
         this.specialization = specialization;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
+        this.type = type;
 
     }
 
@@ -89,6 +93,13 @@ public class Doctor {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
 }
