@@ -1,18 +1,16 @@
 package com.assignment.LabAppointmentSystem.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.jpa.domain.Specification;
 
 @Entity
-@Table(name = "doctors")
-public class Doctor {
+@Table(name = "lab_technicians")
+public class LabTechnician {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-    @Enumerated(EnumType.STRING)
-    private Specialization specialization;
+    private String specialization;
     private String address;
     private String phoneNumber;
     private String email;
@@ -20,18 +18,15 @@ public class Doctor {
     private String password;
 
 
+    public LabTechnician() {}
 
-
-    public Doctor() {}
-
-    public Doctor(String name, Specialization specialization, String address, String phoneNumber, String email,String password) {
+    public LabTechnician(String name, String specialization, String address, String phoneNumber, String email, String password) {
         this.name = name;
         this.specialization = specialization;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
-
     }
 
 
@@ -51,11 +46,11 @@ public class Doctor {
         this.name = name;
     }
 
-    public Specialization getSpecialization() {
+    public String getSpecialization() {
         return specialization;
     }
 
-    public void setSpecialization(Specialization specialization) {
+    public void setSpecialization(String specialization) {
         this.specialization = specialization;
     }
 
@@ -82,7 +77,6 @@ public class Doctor {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getPassword() {
         return password;
     }
@@ -90,5 +84,4 @@ public class Doctor {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
