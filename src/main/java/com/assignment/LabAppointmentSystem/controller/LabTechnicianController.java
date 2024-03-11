@@ -1,7 +1,10 @@
 package com.assignment.LabAppointmentSystem.controller;
 
 import com.assignment.LabAppointmentSystem.model.LabTechnician;
+import com.assignment.LabAppointmentSystem.service.AppointmentService;
 import com.assignment.LabAppointmentSystem.service.LabTechnicianService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +14,16 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3001")
+@RequestMapping("/lab-technician")
 public class LabTechnicianController {
+
     private final LabTechnicianService labTechnicianService;
+
 
     @Autowired
     public LabTechnicianController(LabTechnicianService labTechnicianService) {
         this.labTechnicianService = labTechnicianService;
+
     }
 
     @PostMapping("/lab-technicians")
@@ -42,4 +49,6 @@ public class LabTechnicianController {
         labTechnicianService.deleteLabTechnician(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+
 }

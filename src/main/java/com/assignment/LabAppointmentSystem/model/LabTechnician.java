@@ -10,18 +10,20 @@ public class LabTechnician {
     private Long id;
 
     private String name;
-    private String specialization;
+    @Enumerated(EnumType.STRING)
+    private Specialization specialization;
     private String address;
     private String phoneNumber;
     private String email;
 
     private String password;
+    @Enumerated(EnumType.STRING)
     private Type type;
 
 
     public LabTechnician() {}
 
-    public LabTechnician(String name, String specialization, String address, String phoneNumber, String email, String password,Type type) {
+    public LabTechnician(String name, Specialization specialization, String address, String phoneNumber, String email, String password,Type type) {
         this.name = name;
         this.specialization = specialization;
         this.address = address;
@@ -48,11 +50,11 @@ public class LabTechnician {
         this.name = name;
     }
 
-    public String getSpecialization() {
+    public Specialization getSpecialization() {
         return specialization;
     }
 
-    public void setSpecialization(String specialization) {
+    public void setSpecialization(Specialization specialization) {
         this.specialization = specialization;
     }
 

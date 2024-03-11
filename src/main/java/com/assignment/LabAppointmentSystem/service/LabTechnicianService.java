@@ -34,6 +34,8 @@ public class LabTechnicianService {
         existingLabTechnician.setAddress(newLabTechnicianData.getAddress());
         existingLabTechnician.setPhoneNumber(newLabTechnicianData.getPhoneNumber());
         existingLabTechnician.setEmail(newLabTechnicianData.getEmail());
+        existingLabTechnician.setPassword(newLabTechnicianData.getPassword());
+        existingLabTechnician.setType(newLabTechnicianData.getType());
 
         return labTechnicianRepository.save(existingLabTechnician);
     }

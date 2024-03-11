@@ -7,33 +7,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/appointment")
-@CrossOrigin(origins = "http://localhost:3001")
-public class AppointmentController {
+@RequestMapping("/lab-technician/appointments")
+public class LabTechnicianAppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
-    @PostMapping("/book")
-    public ResponseEntity<Appointment> bookAppointment(@RequestBody Appointment appointment) {
-
-        Long patientId = appointment.getPatientId();
-
-        Appointment bookedAppointment = appointmentService.bookAppointment(appointment, patientId);
-        return ResponseEntity.ok(bookedAppointment);
-    }
-
-
-    @GetMapping("/appointments")
-    public ResponseEntity<List<Appointment>> getMyAppointments() {
+    @GetMapping("/")
+    public ResponseEntity<List<Appointment>> getAllAppointments() {
         List<Appointment> appointments = appointmentService.getAllAppointments();
         return new ResponseEntity<>(appointments, HttpStatus.OK);
     }
-
-
-
-
 }

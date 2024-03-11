@@ -21,10 +21,6 @@ public class AppointmentService {
         return appointmentRepository.findAll();
     }
 
-    // AppointmentService.java
 
-    public List<Appointment> getAppointmentsByUsername(String username) {
-        return appointmentRepository.findByPatientName(username);
-    }
 
 }

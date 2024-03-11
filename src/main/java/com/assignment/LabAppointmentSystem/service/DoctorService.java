@@ -34,6 +34,8 @@ public class DoctorService {
         existingDoctor.setAddress(newDoctorData.getAddress());
         existingDoctor.setPhoneNumber(newDoctorData.getPhoneNumber());
         existingDoctor.setEmail(newDoctorData.getEmail());
+        existingDoctor.setPassword(newDoctorData.getPassword());
+        existingDoctor.setType(newDoctorData.getType());
 
         return doctorRepository.save(existingDoctor);
     }
