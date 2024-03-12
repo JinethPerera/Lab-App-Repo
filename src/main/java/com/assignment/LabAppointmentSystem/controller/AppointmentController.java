@@ -28,10 +28,11 @@ public class AppointmentController {
 
 
     @GetMapping("/appointments")
-    public ResponseEntity<List<Appointment>> getMyAppointments() {
-        List<Appointment> appointments = appointmentService.getAllAppointments();
+    public ResponseEntity<List<Appointment>> getMyAppointments(@RequestParam String username) {
+        List<Appointment> appointments = appointmentService.getAppointmentsByUsername(username);
         return new ResponseEntity<>(appointments, HttpStatus.OK);
     }
+
 
 
 

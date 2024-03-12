@@ -12,8 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/lab-technician/appointments")
 public class LabTechnicianAppointmentController {
+
     @Autowired
     private AppointmentService appointmentService;
+
 
     @GetMapping("/")
     public ResponseEntity<List<Appointment>> getAllAppointments() {

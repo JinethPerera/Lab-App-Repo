@@ -11,15 +11,19 @@ import java.util.List;
 public class AppointmentService {
     @Autowired
     private AppointmentRepository appointmentRepository;
+    public List<Appointment> getAllAppointments() {
+        return appointmentRepository.findAll();
+    }
 
     public Appointment bookAppointment(Appointment appointment, Long patientId) {
         appointment.setPatientId(patientId); // Set the patient ID
         return appointmentRepository.save(appointment);
     }
 
-    public List<Appointment> getAllAppointments() {
-        return appointmentRepository.findAll();
+    public List<Appointment> getAppointmentsByUsername(String username) {
+        return appointmentRepository.findByPatientName(username);
     }
+
 
 
 
