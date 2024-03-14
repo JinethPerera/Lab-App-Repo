@@ -10,6 +10,8 @@ import java.util.List;
 @Service
 public class LabTechnicianService {
 
+
+
     private final LabTechnicianRepository labTechnicianRepository;
 
     @Autowired
@@ -43,4 +45,9 @@ public class LabTechnicianService {
     public void deleteLabTechnician(Long id) {
         labTechnicianRepository.deleteById(id);
     }
+
+    public LabTechnician login(String email, String password) {
+        return labTechnicianRepository.findByEmailAndPassword(email, password);
+    }
+
 }

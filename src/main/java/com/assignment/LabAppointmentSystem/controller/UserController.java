@@ -1,5 +1,6 @@
 package com.assignment.LabAppointmentSystem.controller;
 
+import com.assignment.LabAppointmentSystem.model.Type;
 import com.assignment.LabAppointmentSystem.model.User;
 
 import com.assignment.LabAppointmentSystem.service.UserService;

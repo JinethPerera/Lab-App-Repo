@@ -1,6 +1,7 @@
 package com.assignment.LabAppointmentSystem.controller;
 
 import com.assignment.LabAppointmentSystem.model.LabTechnician;
+import com.assignment.LabAppointmentSystem.model.LoginRequest;
 import com.assignment.LabAppointmentSystem.service.AppointmentService;
 import com.assignment.LabAppointmentSystem.service.LabTechnicianService;
 
@@ -48,6 +49,16 @@ public class LabTechnicianController {
     public ResponseEntity<Void> deleteLabTechnician(@PathVariable Long id) {
         labTechnicianService.deleteLabTechnician(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LabTechnician> login(@RequestBody LoginRequest loginRequest) {
+        LabTechnician loggedInTechnician = labTechnicianService.login(loginRequest.getEmail(), loginRequest.getPassword());
+        if (loggedInTechnician != null) {
+            return ResponseEntity.ok(loggedInTechnician);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 
 

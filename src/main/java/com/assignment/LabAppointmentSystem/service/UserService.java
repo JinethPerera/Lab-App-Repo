@@ -27,8 +27,10 @@ public class UserService implements UserServiceInterface {
         return null;
     }
 
+
+
     public void addAdminUser() {
-        // Check if the admin user already exists
+
         User existingAdmin = userRepository.findByUsername("Admin");
         if (existingAdmin == null) {
             // Create a new admin user
