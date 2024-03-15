@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3001")
-@RequestMapping("/lab-technician")
+@RequestMapping("/lab-technicians")
 public class LabTechnicianController {
 
     private final LabTechnicianService labTechnicianService;

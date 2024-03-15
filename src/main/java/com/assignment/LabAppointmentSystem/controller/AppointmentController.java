@@ -26,6 +26,11 @@ public class AppointmentController {
         return ResponseEntity.ok(bookedAppointment);
     }
 
+    @PostMapping("/pay")
+    public ResponseEntity<Appointment> payForAppointment(@RequestParam String patientName) {
+        Appointment paidAppointment = appointmentService.payForAppointment(patientName);
+        return ResponseEntity.ok(paidAppointment);
+    }
 
     @GetMapping("/appointments")
     public ResponseEntity<List<Appointment>> getMyAppointments(@RequestParam String username) {

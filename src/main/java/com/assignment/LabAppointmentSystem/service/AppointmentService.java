@@ -24,6 +24,19 @@ public class AppointmentService {
         return appointmentRepository.findByPatientName(username);
     }
 
+    public Appointment payForAppointment(String patientName) {
+        List<Appointment> appointments = appointmentRepository.findByPatientName(patientName);
+        if(appointments.isEmpty()) {
+            throw new RuntimeException("Appointment not found for patient: " + patientName);
+        }
+
+        // Assuming here that there's only one appointment per patient, if not, adjust accordingly
+        Appointment appointment = appointments.get(0);
+        appointment.setStatus("paid");
+        return appointmentRepository.save(appointment);
+    }
+
+
 
 
 

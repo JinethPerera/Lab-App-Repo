@@ -29,9 +29,10 @@ public class UserController {
     public ResponseEntity<?> loginUser(@RequestBody User user) {
         String username = user.getUsername();
         String password = user.getPassword();
+        String email = user.getEmail();
 
-        User loggedInUser = userService.loginUser(username, password);
-        boolean isAdmin = userService.isAdmin(username, password);
+        User loggedInUser = userService.loginUser(username, password,email);
+        boolean isAdmin = userService.isAdmin(username, password,email);
 
         if (loggedInUser != null) {
             if (isAdmin) {
