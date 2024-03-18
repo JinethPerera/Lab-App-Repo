@@ -1,7 +1,9 @@
 package com.assignment.LabAppointmentSystem.service;
 
 import com.assignment.LabAppointmentSystem.model.Appointment;
+import com.assignment.LabAppointmentSystem.model.TestResults;
 import com.assignment.LabAppointmentSystem.repository.AppointmentRepository;
+import com.assignment.LabAppointmentSystem.repository.TestResultsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,9 @@ import java.util.List;
 public class AppointmentService {
     @Autowired
     private AppointmentRepository appointmentRepository;
+
+
+
     public List<Appointment> getAllAppointments() {
         return appointmentRepository.findAll();
     }
@@ -35,6 +40,11 @@ public class AppointmentService {
         appointment.setStatus("paid");
         return appointmentRepository.save(appointment);
     }
+
+    public List<Appointment> getAppointmentsByPatientName(String patientName) {
+        return appointmentRepository.findByPatientName(patientName);
+    }
+
 
 
 

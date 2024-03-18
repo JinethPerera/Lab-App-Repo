@@ -47,7 +47,7 @@ public class AppointmentController {
 
     @GetMapping("/report")
     public ResponseEntity<byte[]> generateAppointmentReport(@RequestParam String patientName) {
-        List<Appointment> appointments = appointmentService.getAppointmentsByUsername(patientName);
+        List<Appointment> appointments = appointmentService.getAppointmentsByPatientName(patientName);
         try {
             byte[] reportBytes = appointmentReportService.generateAppointmentReport(appointments);
 
@@ -58,11 +58,13 @@ public class AppointmentController {
 
             return new ResponseEntity<>(reportBytes, headers, HttpStatus.OK);
         } catch (JRException e) {
-
+            // Handle JasperReports exception
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
 
 
 

@@ -29,12 +29,13 @@ public class UserControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Create a test user
+
         testUser = new User();
         testUser.setUsername("testUser");
         testUser.setPassword("testPassword");
         testUser.setEmail("test@example.com");
     }
+
 
     @Test
     void testRegisterUser() {

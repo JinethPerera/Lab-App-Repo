@@ -12,21 +12,11 @@ import java.util.Map;
 public class AppointmentReportService {
 
     public byte[] generateAppointmentReport(List<Appointment> appointments) throws JRException {
-
         JasperReport jasperReport = JasperCompileManager.compileReport(getClass().getResourceAsStream("/AppointmentReport.jrxml"));
-
-
-
-
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(appointments);
-
-
         Map<String, Object> parameters = null;
-
-
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-
-
         return JasperExportManager.exportReportToPdf(jasperPrint);
     }
+
 }

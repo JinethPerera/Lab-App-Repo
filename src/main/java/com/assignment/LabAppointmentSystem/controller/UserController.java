@@ -36,9 +36,9 @@ public class UserController {
 
         if (loggedInUser != null) {
             if (isAdmin) {
-                return ResponseEntity.ok("Admin"); // Return "Admin" if user is admin
+                return ResponseEntity.ok("Admin");
             } else {
-                return ResponseEntity.ok("User"); // Return "User" if user is not admin
+                return ResponseEntity.ok("User");
             }
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
