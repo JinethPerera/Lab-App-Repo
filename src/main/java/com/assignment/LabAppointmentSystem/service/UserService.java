@@ -55,9 +55,9 @@ public class UserService implements UserServiceInterface {
             // Create a new admin user
             User adminUser = new User();
             adminUser.setUsername("Admin");
-            adminUser.setPassword("admin123"); // You might want to hash passwords for security
+            adminUser.setPassword("admin123");
 
-            // Save the admin user to the repository
+
             userRepository.save(adminUser);
         }
 
